@@ -11,83 +11,72 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #ffffff;
-  color: #111;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.topbar {
+  background: #eee;
+  padding: 15px 40px;
+  display: flex;
+  gap: 30px;
+  font-weight: 500;
+}
+
+.topbar a {
+  text-decoration: none;
+  color: #666;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
-  padding: 40px 30px;
-}
-
-.header {
+  padding: 40px;
   display: flex;
   gap: 40px;
-  align-items: flex-start;
-  margin-bottom: 30px;
 }
 
-.profile {
-  width: 220px;
+.left {
+  width: 250px;
 }
 
-.profile img {
-  width: 120px;
-  height: 120px;
+.left img {
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
 }
 
-.profile h1 {
-  font-size: 20px;
-  margin: 10px 0 5px;
-}
-
-.profile p {
-  font-size: 13px;
-  color: #555;
+.links {
+  margin-top: 20px;
 }
 
 .links a {
   display: block;
-  font-size: 13px;
-  color: #2563eb;
+  margin: 10px 0;
+  color: #444;
   text-decoration: none;
-  margin: 4px 0;
 }
 
-.main-area {
+.right {
   flex: 1;
 }
 
-.nav {
-  margin-bottom: 20px;
+h1 {
+  margin-top: 0;
+  font-size: 32px;
 }
 
-.nav a {
-  margin-right: 20px;
-  text-decoration: none;
-  color: #2563eb;
-  font-weight: 500;
-  cursor: pointer;
+p {
+  line-height: 1.7;
+  margin-bottom: 18px;
 }
 
 .section {
   display: none;
-  max-width: 800px;
 }
 
 .section.active {
   display: block;
-}
-
-h2 {
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
-}
-
-ul {
-  padding-left: 20px;
 }
 
 </style>
@@ -95,83 +84,64 @@ ul {
 
 <body>
 
+<!-- TOP NAV -->
+<div class="topbar">
+  <a onclick="showSection('home')">Hello!</a>
+  <a onclick="showSection('publications')">Publications</a>
+  <a onclick="showSection('teaching')">Teaching</a>
+  <a onclick="showSection('cv')">CV</a>
+</div>
+
 <div class="container">
 
-<div class="header">
+<!-- LEFT PROFILE -->
+<div class="left">
+  <img src="assets/gautam_portrait.jpg">
 
-  <!-- LEFT PROFILE -->
-  <div class="profile">
-    <img src="assets/gautam_portrait.jpg">
+  <div class="links">
+    <a href="#">✉ Email</a>
+    <a href="#">🐦 Twitter</a>
+    <a href="#">💻 Github</a>
+    <a href="#">🎓 Google Scholar</a>
+  </div>
+</div>
+
+<!-- RIGHT CONTENT -->
+<div class="right">
+
+  <!-- HOME -->
+  <div id="home" class="section active">
     <h1>Gautam Kishore Shahi</h1>
-    <p>PhD Student<br>Social Media · Data Science</p>
 
-    <div class="links">
-      <a href="#">Email</a>
-      <a href="#">Twitter</a>
-      <a href="#">Github</a>
-      <a href="#">Google Scholar</a>
-    </div>
+    <p>
+      I am a Computational Social Scientist working on user-centered social media, Web Science, and data-driven analysis.
+    </p>
+
+    <p>
+      I am currently a PhD student at the University of Duisburg-Essen. My research focuses on understanding and improving social media systems.
+    </p>
+
+    <p>
+      Before this, I studied and worked across India, New Zealand, Italy, and Germany. I also worked as an Assistant System Engineer at Tata Consultancy Services.
+    </p>
   </div>
 
-  <!-- RIGHT CONTENT -->
-  <div class="main-area">
+  <!-- PUBLICATIONS -->
+  <div id="publications" class="section">
+    <h1>Publications</h1>
+    <p>List your publications here...</p>
+  </div>
 
-    <div class="nav">
-      <a onclick="showSection('home')">Home</a>
-      <a onclick="showSection('news')">News</a>
-      <a onclick="showSection('publications')">Publications</a>
-      <a onclick="showSection('talks')">Talks</a>
-      <a onclick="showSection('service')">Service</a>
-    </div>
+  <!-- TEACHING -->
+  <div id="teaching" class="section">
+    <h1>Teaching</h1>
+    <p>Teaching content here...</p>
+  </div>
 
-    <!-- HOME -->
-    <div id="home" class="section active">
-      <h2>About</h2>
-      <p>
-        I’m a PhD student at the University of Duisburg-Essen working on user-centered social media. My research focuses on Web Science, Data Science, and Social Media Analytics.
-      </p>
-      <p>
-        Background in Computer Science across India, New Zealand, Italy, and Germany. Former Assistant System Engineer at Tata Consultancy Services.
-      </p>
-    </div>
-
-    <!-- NEWS -->
-    <div id="news" class="section">
-      <h2>News</h2>
-      <ul>
-        <li>Paper accepted at Social Informatics 2022</li>
-      </ul>
-    </div>
-
-    <!-- PUBLICATIONS -->
-    <div id="publications" class="section">
-      <h2>Publications</h2>
-      <ul>
-        <li>Gene Expression with Spiking Neural Networks</li>
-        <li>Temporal Data Modelling</li>
-        <li>Transportation Ontology</li>
-        <li>Metadata for Ontologies</li>
-      </ul>
-    </div>
-
-    <!-- TALKS -->
-    <div id="talks" class="section">
-      <h2>Talks</h2>
-      <ul>
-        <li>FakeCovid Dataset – Clarin</li>
-        <li>Meedan Talk</li>
-      </ul>
-    </div>
-
-    <!-- SERVICE -->
-    <div id="service" class="section">
-      <h2>Academic Service</h2>
-      <ul>
-        <li>HASOC Workshop Organizer</li>
-        <li>Reviewer – ECIR, ACL</li>
-      </ul>
-    </div>
-
+  <!-- CV -->
+  <div id="cv" class="section">
+    <h1>CV</h1>
+    <p>Add CV details here...</p>
   </div>
 
 </div>
