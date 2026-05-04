@@ -18,8 +18,19 @@ body {
 .topbar {
   background: #eee;
   padding: 15px 40px;
+}
+
+.topbar-inner {
+  max-width: 1100px;
+  margin: auto;
   display: flex;
   gap: 30px;
+  align-items: center;
+}
+
+.topbar a {
+  text-decoration: none;
+  color: #666;
   font-weight: 500;
 }
 
@@ -86,10 +97,12 @@ p {
 
 <!-- TOP NAV -->
 <div class="topbar">
-  <a onclick="showSection('home')">Hello!</a>
-  <a onclick="showSection('publications')">Publications</a>
-  <a onclick="showSection('teaching')">Teaching</a>
-  <a onclick="showSection('cv')">CV</a>
+  <div class="topbar-inner">
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('publications')">Publications</a>
+    <a onclick="showSection('teaching')">Teaching</a>
+    <a onclick="showSection('cv')">CV</a>
+  </div>
 </div>
 
 <div class="container">
