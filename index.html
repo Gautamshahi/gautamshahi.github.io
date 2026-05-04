@@ -64,6 +64,7 @@ body {
   margin: 0 10px;
   text-decoration: none;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .grid {
@@ -111,7 +112,6 @@ li {
   color: var(--muted);
   font-size: 14px;
 }
-
 </style>
 </head>
 
@@ -124,7 +124,7 @@ li {
   <h1>Gautam Kishore Shahi</h1>
   <p>PhD Student · Social Media · Data Science</p>
   <div class="nav">
-    <a href="#">Home</a>
+    <a onclick="scrollToTop()">Home</a>
     <a href="#news">News</a>
     <a href="#publications">Publications</a>
     <a href="#talks">Talks</a>
@@ -188,6 +188,15 @@ li {
 </div>
 
 </div>
+
+<script>
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+</script>
 
 </body>
 </html>
