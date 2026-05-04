@@ -5,118 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gautam Kishore Shahi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg: #f9fafb;
-  --card: #ffffff;
-  --accent: #2563eb;
-  --text: #111827;
-  --muted: #6b7280;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background: #ffffff;
+  color: #111;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 900px;
   margin: auto;
   padding: 40px 20px;
 }
 
 .hero {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .hero img {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 4px solid var(--accent);
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  margin: 20px 0 10px;
+  margin: 15px 0 5px;
+  font-size: 32px;
 }
 
 .hero p {
-  color: var(--muted);
+  color: #555;
 }
 
 .nav {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .nav a {
-  color: var(--accent);
   margin: 0 10px;
   text-decoration: none;
+  color: #2563eb;
   font-weight: 500;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+.section {
+  display: none;
 }
 
-.card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: 0.3s ease;
+.section.active {
+  display: block;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-}
-
-.card h3 {
-  margin-top: 0;
-  color: var(--accent);
+.section h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
 }
 
 ul {
-  padding-left: 18px;
-}
-
-li {
-  margin-bottom: 8px;
-}
-
-.about {
-  margin-bottom: 40px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-.footer {
-  text-align: center;
-  margin-top: 40px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-
-
-function scrollToTop(e) {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  padding-left: 20px;
 }
 
 </style>
@@ -126,36 +76,41 @@ function scrollToTop(e) {
 
 <div class="container">
 
-<div class="hero">
-  <img src="assets/gautam_portrait.jpg" alt="profile">
-  <h1>Gautam Kishore Shahi</h1>
-  <p>PhD Student · Social Media · Data Science</p>
-  <div class="nav">
-    <a href="#" onclick="scrollToTop(event)">Home</a>
-    <a href="#news">News</a>
-    <a href="#publications">Publications</a>
-    <a href="#talks">Talks</a>
-    <a href="#service">Service</a>
+<!-- HOME (SUMMARY ONLY) -->
+<div id="home" class="section active">
+  <div class="hero">
+    <img src="assets/gautam_portrait.jpg">
+    <h1>Gautam Kishore Shahi</h1>
+    <p>PhD Student · Social Media · Data Science</p>
+
+    <div class="nav">
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('news')">News</a>
+      <a onclick="showSection('publications')">Publications</a>
+      <a onclick="showSection('talks')">Talks</a>
+      <a onclick="showSection('service')">Service</a>
+    </div>
   </div>
+
+  <p>
+    I’m a PhD student at the University of Duisburg-Essen working on user-centered social media. My research focuses on Web Science, Data Science, and Social Media Analytics.
+  </p>
+  <p>
+    Background in Computer Science across India, New Zealand, Italy, and Germany. Former Assistant System Engineer at Tata Consultancy Services.
+  </p>
 </div>
 
-<div class="about">
-  I’m a PhD student at the University of Duisburg-Essen working on user-centered social media. My research explores Web Science, Data Science, and Social Media Analytics.
-  <br><br>
-  I’ve studied and worked across India, New Zealand, Italy, and Germany, and previously worked at Tata Consultancy Services.
-</div>
-
-<div class="grid">
-
-<div class="card" id="news">
-  <h3>News</h3>
+<!-- NEWS -->
+<div id="news" class="section">
+  <h2>News</h2>
   <ul>
     <li>Paper accepted at Social Informatics 2022</li>
   </ul>
 </div>
 
-<div class="card" id="publications">
-  <h3>Publications</h3>
+<!-- PUBLICATIONS -->
+<div id="publications" class="section">
+  <h2>Publications</h2>
   <ul>
     <li>Gene Expression with Spiking Neural Networks</li>
     <li>Temporal Data Modelling</li>
@@ -164,37 +119,32 @@ function scrollToTop(e) {
   </ul>
 </div>
 
-<div class="card" id="talks">
-  <h3>Talks</h3>
+<!-- TALKS -->
+<div id="talks" class="section">
+  <h2>Talks</h2>
   <ul>
     <li>FakeCovid Dataset – Clarin</li>
     <li>Meedan Talk</li>
   </ul>
 </div>
 
-<div class="card" id="service">
-  <h3>Service</h3>
+<!-- SERVICE -->
+<div id="service" class="section">
+  <h2>Academic Service</h2>
   <ul>
     <li>HASOC Workshop Organizer</li>
     <li>Reviewer – ECIR, ACL</li>
   </ul>
 </div>
 
-<div class="card" id="mentoring">
-  <h3>Mentoring</h3>
-  <ul>
-    <li>Master & Bachelor supervision</li>
-    <li>Research mentoring</li>
-  </ul>
 </div>
 
-</div>
-
-<div class="footer">
-  Dark modern academic portfolio
-</div>
-
-</div>
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
 
 </body>
 </html>
